@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Components Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Interactive Components</div>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="project-grid">
+        <!-- Slider Project -->
+        <div class="project-card">
+          <h3>Interactive Slider</h3>
+          <div class="project-demo" id="slider-demo">
+            <!-- Slider component will be inserted here -->
+          </div>
+          <div class="project-info">
+            <p>A customizable slider component with smooth animations</p>
+            <div class="project-controls">
+              <button class="try-button">Try it out</button>
+              <button class="view-code">View Code</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dial Project -->
+        <div class="project-card">
+          <h3>Rotating Dial</h3>
+          <div class="project-demo" id="dial-demo">
+            <!-- Dial component will be inserted here -->
+          </div>
+          <div class="project-info">
+            <p>An intuitive rotating dial control with haptic feedback</p>
+            <div class="project-controls">
+              <button class="try-button">Try it out</button>
+              <button class="view-code">View Code</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Get in Touch</h2>
+      <div class="contact-content">
+        <form id="contact-form">
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p>&copy; 2024 Interactive Components. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
