@@ -9,6 +9,9 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation */
@@ -82,6 +85,7 @@ body {
 /* Projects Section */
 .projects {
     padding: 8rem 2rem 5rem;
+    flex: 1;
 }
 
 .project-grid {
@@ -112,6 +116,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-info {
@@ -121,38 +127,6 @@ body {
 .project-info p {
     color: #666;
     margin-bottom: 1rem;
-}
-
-.project-controls {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-controls button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.try-button {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.try-button:hover {
-    background-color: #0056b3;
-}
-
-.view-code {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd !important;
-}
-
-.view-code:hover {
-    background-color: #e9ecef;
 }
 
 /* Contact Section */
@@ -204,20 +178,26 @@ body {
 
 /* Footer */
 footer {
-    padding: 2rem;
+    margin-top: auto;
+    padding: 3rem 2rem;
     text-align: center;
     background-color: #333;
     color: #fff;
 }
 
+footer h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
 .social-links {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .social-links a {
     color: #fff;
-    margin: 0 1rem;
-    font-size: 1.5rem;
+    margin: 0 1.5rem;
+    font-size: 1.8rem;
     transition: color 0.3s ease;
 }
 
@@ -284,4 +264,46 @@ footer {
     .project-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Add these styles after your existing project-demo styles */
+
+.dial-background {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ffd700 50%, #4CAF50 50%);
+}
+
+.dial-circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ffd700 50%, #4CAF50 50%);
+    cursor: grab;
+    touch-action: none;
+}
+
+.dial-circle:active {
+    cursor: grabbing;
+}
+
+/* Update the project-demo styles for the dial project */
+#dial-demo {
+    background: linear-gradient(to bottom, #ffd700 50%, #4CAF50 50%);
+}
+
+/* Adjust the dial components to be centered */
+.dial-background, .dial-circle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Update the dial-circle transform to maintain both centering and rotation */
+.dial-circle {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(0deg);
 } 
