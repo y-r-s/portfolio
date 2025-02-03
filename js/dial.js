@@ -18,15 +18,24 @@ class RotatingDial {
     this.dial = document.createElement("div");
     this.dial.className = "dial-circle";
 
-    // Add the indicator dot with number
-    const indicator = document.createElement("div");
-    indicator.className = "dial-indicator";
-    this.indicatorText = document.createTextNode("0");
-    indicator.appendChild(this.indicatorText);
-    this.dial.appendChild(indicator);
+    // Create the line
+    const line = document.createElement("div");
+    line.className = "dial-line";
+    this.dial.appendChild(line);
+
+    // Create the marker dots
+    const markers = document.createElement("div");
+    markers.className = "dial-markers";
+
+    // Add 5 marker dots
+    for (let i = 0; i < 5; i++) {
+      const dot = document.createElement("span");
+      markers.appendChild(dot);
+    }
 
     this.container.appendChild(this.background);
     this.container.appendChild(this.dial);
+    this.container.appendChild(markers);
 
     // Add event listeners
     this.dial.addEventListener("mousedown", this.startDragging.bind(this));
@@ -82,12 +91,6 @@ class RotatingDial {
     this.startAngle = currentAngle - this.lastValidAngle;
   }
 
-  updateIndicatorNumber(angle) {
-    // Convert angle to number (0-5 range)
-    const number = Math.round((angle / 180) * 5);
-    this.indicatorText.nodeValue = number.toString();
-  }
-
   drag(event) {
     if (!this.isDragging) return;
     event.preventDefault();
@@ -97,10 +100,6 @@ class RotatingDial {
 
     this.lastValidAngle = newAngle;
     this.dial.style.transform = `translate(-50%, -50%) rotate(${newAngle}deg)`;
-    // Counter-rotate the indicator to keep text upright
-    const indicator = this.dial.querySelector(".dial-indicator");
-    indicator.style.transform = `translate(-50%, -50%) rotate(${-newAngle}deg)`;
-    this.updateIndicatorNumber(newAngle);
   }
 
   stopDragging() {

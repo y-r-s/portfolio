@@ -99,7 +99,7 @@ body {
 }
 
 .project-card {
-    background: #fff;
+    /* background: #fff; */
     border-radius: 10px;
     padding: 1.5rem;
     position: relative;
@@ -276,7 +276,7 @@ footer h2 {
     height: 150px;
     border-radius: 50%;
     background: linear-gradient(to bottom, #f5f5f5 50%, #eaeaea 50%);
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.15));
+    /* filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.15)); */
 }
 
 .dial-circle {
@@ -312,11 +312,11 @@ footer h2 {
     transform: translate(-50%, -50%) rotate(0deg);
 }
 
-/* Update the dial-numbers styles */
-.dial-numbers {
+/* Add styles for the marker dots */
+.dial-markers {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -324,60 +324,53 @@ footer h2 {
     pointer-events: none;
 }
 
-.dial-numbers span {
+.dial-markers span {
     position: absolute;
-    color: #808080;
-    font-size: 18px;
-    font-weight: bold;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    line-height: 24px;
+    width: 2px;
+    height: 2px;
+    background-color: #262626;
+    border-radius: 50%;
     pointer-events: none;
 }
 
-/* Position each number individually in a semicircle */
-.dial-numbers span:nth-child(1) { /* 1 */
-    right: 20px;
-    bottom: 45px;
+/* Update marker positions for 5 circles */
+.dial-markers span:nth-child(1) {
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.dial-numbers span:nth-child(2) { /* 2 */
-    right: 45px;
-    bottom: 25px;
+.dial-markers span:nth-child(2) {
+    left: 18%;
+    top: 18%;
 }
 
-.dial-numbers span:nth-child(3) { /* 3 */
-    left: 50%;
+.dial-markers span:nth-child(3) {
+    right: 50%;
+    top: 5%;
     transform: translateX(-50%);
-    bottom: 20px;
 }
 
-.dial-numbers span:nth-child(4) { /* 4 */
-    left: 45px;
-    bottom: 25px;
+.dial-markers span:nth-child(4) {
+    right: 18%;
+    top: 18%;
 }
 
-.dial-numbers span:nth-child(5) { /* 5 */
-    left: 20px;
-    bottom: 45px;
+.dial-markers span:nth-child(5) {
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Add styles for the indicator dot */
-.dial-indicator {
+/* Add the line style */
+.dial-line {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    background-color: #f5f5f5;
-    border-radius: 50%;
-    left: 20px;
-    top: 40%;
+    width: 150px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: #262626;
-    transform-origin: center;
+    background: linear-gradient(to right, rgba(0, 0, 0), transparent);
+    pointer-events: none;
+    z-index: 1;
 } 
