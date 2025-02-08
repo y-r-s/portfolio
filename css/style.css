@@ -268,51 +268,37 @@ footer h2 {
     }
 }
 
-/* Add these styles after your existing project-demo styles */
-
-.dial-background {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+/* Remove duplicate background gradients and consolidate dial styles */
+.dial-background,
+.dial-circle,
+#dial-demo {
     background: linear-gradient(to bottom, #f5f5f5 50%, #eaeaea 50%);
-    /* filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.15)); */
 }
 
+.dial-background,
 .dial-circle {
     position: absolute;
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(to bottom, #f5f5f5 50%, #eaeaea 50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dial-circle {
     cursor: grab;
     touch-action: none;
     outline: 1px solid rgba(128, 128, 128, 0);
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .dial-circle:active {
     cursor: grabbing;
 }
 
-/* Update the project-demo styles for the dial project */
-#dial-demo {
-    background: linear-gradient(to bottom, #f5f5f5 50%, #eaeaea 50%);
-}
-
-/* Adjust the dial components to be centered */
-.dial-background, .dial-circle {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Update the dial-circle transform to maintain both centering and rotation */
-.dial-circle {
-    transform-origin: center;
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-/* Add styles for the marker dots */
+/* Keep the rest of your styles as they are */
 .dial-markers {
     position: absolute;
     width: 200px;
