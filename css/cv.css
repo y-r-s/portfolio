@@ -133,4 +133,79 @@
     line-height: 1.5;
     font-size: 14px;
     max-width: 95%;
+}
+
+/* Add these responsive styles at the end of the file */
+@media screen and (max-width: 768px) {
+    .cv-container {
+        margin: 80px auto 30px;
+        padding: 0 1rem;
+    }
+
+    .cv-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cv-contact {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .cv-item {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-date {
+        color: #666;
+        font-size: 13px;
+        margin-bottom: 0.2rem;
+    }
+
+    .cv-section h2 {
+        font-size: 16px;
+    }
+
+    .cv-content h3 {
+        font-size: 14px;
+    }
+
+    .cv-content p, 
+    .cv-content li {
+        font-size: 13px;
+    }
+
+    .profile p {
+        font-size: 13px;
+        max-width: 100%;
+    }
+
+    /* Adjust spacing for mobile */
+    .cv-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-content ul {
+        padding-left: 1rem;
+    }
+}
+
+/* Add styles for even smaller screens */
+@media screen and (max-width: 480px) {
+    .cv-container {
+        margin: 60px auto 20px;
+    }
+
+    .cv-header h1 {
+        font-size: 20px;
+    }
+
+    .download-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 13px;
+    }
 } 
