@@ -263,8 +263,17 @@ footer h2 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
+    .projects {
+        padding: 8rem 0.5rem 5rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
