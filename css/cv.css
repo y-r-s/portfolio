@@ -350,6 +350,28 @@
 
 /* Print styles */
 @media print {
+    /* Add white background */
+    body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        margin: 0;
+        max-height: 297mm;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    .cv-container {
+        page-break-after: always;
+        max-height: 100vh;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    /* Hide website link */
+    .cv-contact p:last-child {
+        display: none;
+    }
+
     .cv-header {
         justify-content: flex-start;
         margin-top: 0;
@@ -368,20 +390,6 @@
     @page {
         margin: 0;
         size: A4;
-    }
-
-    body {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-        margin: 0;
-        max-height: 297mm;
-        overflow: hidden;
-    }
-
-    .cv-container {
-        page-break-after: always;
-        max-height: 100vh;
-        overflow: hidden;
     }
 
     .cv-section {
