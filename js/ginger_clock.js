@@ -14,6 +14,16 @@ function initGingerClock() {
   const digitalDisplay = document.createElement("div");
   digitalDisplay.className = "digital-display";
 
+  // Create separate hour and minute displays
+  const hourDisplay = document.createElement("div");
+  hourDisplay.className = "hour-display";
+
+  const minuteDisplay = document.createElement("div");
+  minuteDisplay.className = "minute-display";
+
+  digitalDisplay.appendChild(hourDisplay);
+  digitalDisplay.appendChild(minuteDisplay);
+
   // Assemble the clock
   clock.appendChild(clockFace);
   clock.appendChild(digitalDisplay);
@@ -30,9 +40,8 @@ function initGingerClock() {
     const secondDegrees = (seconds / 60) * 360;
 
     // Update digital display
-    digitalDisplay.textContent = `${hours.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")}`;
+    hourDisplay.textContent = hours.toString().padStart(2, "0");
+    minuteDisplay.textContent = minutes.toString().padStart(2, "0");
 
     // Rotate ginger image
     clockFace.style.transform = `rotate(${secondDegrees}deg)`;

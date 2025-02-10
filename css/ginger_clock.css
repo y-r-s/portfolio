@@ -31,16 +31,21 @@
 .digital-display {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     font-family: 'Inter', monospace;
-    font-size: 50px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.8);
-    padding: 5px 10px;
-    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(56, 38, 0, 0.9);
     z-index: 2;
-    /* backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    filter: blur(0.5px); */
+    mix-blend-mode: multiply;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.hour-display, .minute-display {
+    padding: 5px;
+    border-radius: 4px;
 } 
