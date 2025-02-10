@@ -8,8 +8,8 @@
 .dial-background,
 .dial-circle {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -30,8 +30,8 @@
 
 .dial-markers {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 330px;
+    height: 330px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -41,46 +41,58 @@
 
 .dial-markers span {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: #262626;
     border-radius: 50%;
     pointer-events: none;
 }
 
-/* Marker positions */
+/* Marker positions with varying sizes */
 .dial-markers span:nth-child(1) {
-    left: 8%;
+    left: 6%;
     top: 50%;
     transform: translateY(-50%);
+    width: 7px;    /* Smallest */
+    height: 7px;
 }
 
 .dial-markers span:nth-child(2) {
-    left: 20%;
-    top: 20%;
+    left: 18%;
+    top: 18%;
+    width: 8px;    /* Slightly bigger */
+    height: 8px;
 }
+
 
 .dial-markers span:nth-child(3) {
     left: 50%;
-    top: 8%;
+    top: 6%;
     transform: translateX(-50%);
+    width: 9px;    /* Medium */
+    height: 9px;
 }
 
+
 .dial-markers span:nth-child(4) {
-    right: 20%;
-    top: 20%;
+    right: 18%;
+    top: 18%;
+    width: 10px;   /* Larger */
+    height: 10px;
 }
 
 .dial-markers span:nth-child(5) {
-    right: 8%;
+    right: 6%;
     top: 50%;
     transform: translateY(-50%);
+    width: 13px;   /* Largest */
+    height: 13px;
 }
 
 .dial-line {
     position: absolute;
-    width: 200px;
-    height: 3px;
+    width: 280px;
+    height: 4px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

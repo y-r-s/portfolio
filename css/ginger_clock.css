@@ -1,8 +1,8 @@
 /* Ginger Clock Container */
 .ginger-clock {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto;
     background: #fff;
     border-radius: 50%;
@@ -35,14 +35,14 @@
     right: 0;
     transform: translateY(-50%);
     font-family: 'Inter', monospace;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 300;
     color: rgba(56, 38, 0, 0.9);
     z-index: 2;
     mix-blend-mode: multiply;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .hour-display, .minute-display {
