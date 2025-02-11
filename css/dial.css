@@ -8,8 +8,8 @@
 .dial-background,
 .dial-circle {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -30,8 +30,8 @@
 
 .dial-markers {
     position: absolute;
-    width: 330px;
-    height: 330px;
+    width: 290px;
+    height: 290px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -91,7 +91,7 @@
 
 .dial-line {
     position: absolute;
-    width: 280px;
+    width: 240px;
     height: 4px;
     top: 50%;
     left: 50%;
