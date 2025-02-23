@@ -40,24 +40,66 @@ class Dial3D {
     this.dial.addEventListener("mousemove", this.handleTilt.bind(this));
     this.dial.addEventListener("mouseleave", this.resetTilt.bind(this));
 
-    // Add gyroscope tilt for mobile
+    // Add gyroscope tilt for mobile with permission handling
     if (window.DeviceOrientationEvent) {
-      window.addEventListener("deviceorientation", this.handleGyro.bind(this));
+      // Check if we need to request permission (iOS 13+)
+      if (typeof DeviceOrientationEvent.requestPermission === "function") {
+        // Add a button to request permission
+        const permButton = document.createElement("button");
+        permButton.textContent = "Enable 3D Tilt";
+        permButton.style.position = "absolute";
+        permButton.style.bottom = "10px";
+        permButton.style.left = "50%";
+        permButton.style.transform = "translateX(-50%)";
+        permButton.style.zIndex = "10";
+
+        permButton.addEventListener("click", async () => {
+          try {
+            const permission = await DeviceOrientationEvent.requestPermission();
+            if (permission === "granted") {
+              window.addEventListener(
+                "deviceorientation",
+                this.handleGyro.bind(this)
+              );
+              permButton.style.display = "none";
+            }
+          } catch (error) {
+            console.log("Error requesting gyro permission:", error);
+          }
+        });
+
+        this.dial.appendChild(permButton);
+      } else {
+        // For Android and older iOS, just add the listener
+        window.addEventListener(
+          "deviceorientation",
+          this.handleGyro.bind(this)
+        );
+      }
     }
   }
 
   handleGyro(event) {
     if (this.isDragging) return;
 
+    // Debug logging
+    console.log("Gyro data:", {
+      beta: event.beta,
+      gamma: event.gamma,
+    });
+
     // Get the device orientation angles
     const beta = event.beta; // Front/back tilt (-180 to 180)
     const gamma = event.gamma; // Left/right tilt (-90 to 90)
 
-    if (beta === null || gamma === null) return;
+    if (beta === null || gamma === null) {
+      console.log("No gyro data available");
+      return;
+    }
 
-    // Convert gyro angles to tilt
-    const tiltX = 60 + (beta - 45) * 0.5; // Base tilt 60° + device tilt
-    const tiltY = gamma * 0.5; // Device tilt left/right
+    // Convert gyro angles to tilt with more pronounced effect
+    const tiltX = 60 + (beta - 45); // Increased from 0.5 to 1
+    const tiltY = gamma; // Increased from 0.5 to 1
 
     // Apply tilt with limits
     const limitedTiltX = Math.max(30, Math.min(90, tiltX));
