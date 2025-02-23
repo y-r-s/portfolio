@@ -20,32 +20,15 @@ class Dial3D {
     const face = document.createElement("div");
     face.className = "dial3d-face";
 
-    // Create the line
-    const line = document.createElement("div");
-    line.className = "dial3d-line";
-    face.appendChild(line);
-
-    // Create markers container
-    const markers = document.createElement("div");
-    markers.className = "dial3d-markers";
-
-    // Add 5 markers
-    for (let i = 0; i < 5; i++) {
-      const marker = document.createElement("div");
-      marker.className = "dial3d-marker";
-      markers.appendChild(marker);
-    }
-
     // Assemble the dial
     dial.appendChild(face);
-    dial.appendChild(markers);
     this.container.appendChild(dial);
 
     // Store references
     this.dial = dial;
     this.face = face;
 
-    // Add event listeners
+    // Add event listeners for mouse/touch
     this.dial.addEventListener("mousedown", this.startDragging.bind(this));
     this.dial.addEventListener("touchstart", this.startDragging.bind(this));
     document.addEventListener("mousemove", this.drag.bind(this));
@@ -53,9 +36,34 @@ class Dial3D {
     document.addEventListener("mouseup", this.stopDragging.bind(this));
     document.addEventListener("touchend", this.stopDragging.bind(this));
 
-    // Add mousemove for tilt effect
+    // Add mouse tilt for desktop
     this.dial.addEventListener("mousemove", this.handleTilt.bind(this));
     this.dial.addEventListener("mouseleave", this.resetTilt.bind(this));
+
+    // Add gyroscope tilt for mobile
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", this.handleGyro.bind(this));
+    }
+  }
+
+  handleGyro(event) {
+    if (this.isDragging) return;
+
+    // Get the device orientation angles
+    const beta = event.beta; // Front/back tilt (-180 to 180)
+    const gamma = event.gamma; // Left/right tilt (-90 to 90)
+
+    if (beta === null || gamma === null) return;
+
+    // Convert gyro angles to tilt
+    const tiltX = 60 + (beta - 45) * 0.5; // Base tilt 60° + device tilt
+    const tiltY = gamma * 0.5; // Device tilt left/right
+
+    // Apply tilt with limits
+    const limitedTiltX = Math.max(30, Math.min(90, tiltX));
+    const limitedTiltY = Math.max(-30, Math.min(30, tiltY));
+
+    this.face.style.transform = `translate(-50%, -50%) rotateX(${limitedTiltX}deg) rotateY(${limitedTiltY}deg) rotate(${this.rotation}deg)`;
   }
 
   handleTilt(event) {
