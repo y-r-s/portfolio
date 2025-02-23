@@ -195,13 +195,17 @@ footer h2 {
 
 .social-links {
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .social-links a {
     color: #fff;
-    margin: 0 1.5rem;
     font-size: 1.8rem;
     transition: color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .social-links a:hover {

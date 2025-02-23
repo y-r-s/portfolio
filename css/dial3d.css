@@ -1,0 +1,96 @@
+.dial3d {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+    perspective: 1000px;
+    cursor: grab;
+}
+
+.dial3d:active {
+    cursor: grabbing;
+}
+
+.dial3d-face {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(60deg);
+    background: linear-gradient(to bottom, #f5f5f5 50%, #eaeaea 50%);
+    border-radius: 50%;
+    transition: transform 0.1s ease;
+}
+
+.dial3d-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+    transform: translateY(-50%);
+}
+
+.dial3d-markers {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.dial3d-marker {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+}
+
+/* Marker positions with varying sizes */
+.dial3d-marker:nth-child(1) {
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+}
+
+.dial3d-marker:nth-child(2) {
+    left: 18%;
+    top: 18%;
+    width: 8px;
+    height: 8px;
+}
+
+.dial3d-marker:nth-child(3) {
+    left: 50%;
+    top: 6%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+}
+
+.dial3d-marker:nth-child(4) {
+    right: 18%;
+    top: 18%;
+    width: 10px;
+    height: 10px;
+}
+
+.dial3d-marker:nth-child(5) {
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+    height: 13px;
+} 
