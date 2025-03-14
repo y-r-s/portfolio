@@ -1,0 +1,108 @@
+:root {
+  --button-bg: rgb(238, 238, 238);
+  --button-orange: rgb(238, 76, 8);
+  --button-orange-light: rgb(255, 121, 59);
+  --button-white: rgb(252, 252, 250);
+  --button-gray: rgb(207, 207, 207);
+  --button-dark: rgb(36, 36, 36);
+  --button-medium: rgb(78, 78, 78);
+}
+
+.triple-push {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.push-button {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.button-track {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-bg);
+  border-radius: 40px;
+}
+
+.button-base {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(34, 34, 34);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+}
+
+.button-main {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.button-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 
+    rgba(0, 0, 0, 0.443) 0.52px 0.52px 0.73px -0.625px,
+    rgba(0, 0, 0, 0.43) 1.32px 1.32px 1.87px -1.25px,
+    rgba(0, 0, 0, 0.414) 2.66px 2.66px 3.76px -1.875px,
+    rgba(0, 0, 0, 0.38) 5.03px 5.03px 7.12px -2.5px,
+    rgba(0, 0, 0, 0.314) 10.01px 10.01px 14.15px -3.125px,
+    rgba(0, 0, 0, 0.15) 22px 22px 31.11px -3.75px;
+}
+
+.button-surface {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 
+    rgba(255, 255, 255, 0.6) 1px 1px 2px 0px inset,
+    rgba(0, 0, 0, 0.5) -1px -1px 2px 0px inset,
+    rgba(255, 255, 255, 0.05) 4px 4px 1px 0px inset;
+}
+
+/* Button variants */
+.orange .button-surface {
+  background: radial-gradient(100% 100% at 35.8% 29.3%, 
+    var(--button-orange) 0%, 
+    var(--button-orange-light) 72%, 
+    var(--button-white) 100%
+  );
+}
+
+.gray .button-surface {
+  background: radial-gradient(100% 100% at 35.8% 29.3%,
+    var(--button-gray) 0%,
+    var(--button-white) 72%,
+    var(--button-white) 100%
+  );
+}
+
+.dark .button-surface {
+  background: radial-gradient(100% 100% at 35.8% 29.3%,
+    var(--button-dark) 0%,
+    var(--button-medium) 72%,
+    var(--button-white) 100%
+  );
+}
+
+/* Pressed state */
+.push-button.pressed .button-main {
+  transform: translateX(-50%) translateY(2px);
+} 

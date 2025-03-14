@@ -1,0 +1,60 @@
+.slider3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Remove default cursor */
+    /* cursor: grab; */
+    user-select: none;
+}
+
+.slider3d:active {
+    cursor: grabbing;
+}
+
+.slider3d-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+.slider3d-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Images don't receive events */
+}
+
+.slider3d-interaction {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    /* Optional: visualize hitmap during development */
+    /* background: rgba(255,0,0,0.2); */
+}
+
+.slider3d-hit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* For debugging: */
+    /* opacity: 0.5; */
+    /* display: none; */
+} 

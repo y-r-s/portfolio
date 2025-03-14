@@ -11,7 +11,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    background-color: #f8f9fa;
+    background-color: #dcdcdc;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
 }
 
 .hero-content h1 {
@@ -112,7 +112,7 @@ body {
 }
 
 .project-demo {
-    background: #f8f9fa;
+    background: #dcdcdc;
     border-radius: 2px;
     height: 300px;
     margin: 1rem 0;
@@ -269,11 +269,11 @@ footer h2 {
     }
 
     .projects {
-        padding: 8rem 0.5rem 5rem;
+        padding: 8rem 0rem 5rem;
     }
 
     .project-card {
-        padding: 1rem;
+        padding: 0;
         height: 500px;
     }
 
@@ -286,7 +286,7 @@ footer h2 {
 
     .project-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        /* gap: 0rem; */
     }
 }
 
@@ -381,4 +381,9 @@ footer h2 {
     background: linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0.1));
     pointer-events: none;
     z-index: 1;
+}
+
+/* Add this to your existing styles */
+.project-card.hidden {
+    display: none;
 } 

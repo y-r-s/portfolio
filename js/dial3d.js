@@ -47,11 +47,7 @@ class Dial3D {
         // Add a button to request permission
         const permButton = document.createElement("button");
         permButton.textContent = "Enable 3D Tilt";
-        permButton.style.position = "absolute";
-        permButton.style.bottom = "10px";
-        permButton.style.left = "50%";
-        permButton.style.transform = "translateX(-50%)";
-        permButton.style.zIndex = "10";
+        permButton.className = "enable-tilt-btn";
 
         permButton.addEventListener("click", async () => {
           try {
@@ -62,9 +58,16 @@ class Dial3D {
                 this.handleGyro.bind(this)
               );
               permButton.style.display = "none";
+              console.log("Gyroscope permission granted");
+            } else {
+              console.log("Gyroscope permission denied");
+              permButton.textContent = "Permission Denied";
+              permButton.style.background = "#dc3545";
             }
           } catch (error) {
             console.log("Error requesting gyro permission:", error);
+            permButton.textContent = "Error - Try Again";
+            permButton.style.background = "#dc3545";
           }
         });
 
@@ -75,7 +78,10 @@ class Dial3D {
           "deviceorientation",
           this.handleGyro.bind(this)
         );
+        console.log("Adding deviceorientation listener directly");
       }
+    } else {
+      console.log("DeviceOrientation not supported");
     }
   }
 
