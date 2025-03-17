@@ -1,4 +1,4 @@
-class HMILink {
+class ProjectIntro {
   constructor(container) {
     this.container = container;
     this.isInfoVisible = false;
@@ -11,30 +11,29 @@ class HMILink {
   init() {
     // Create main container
     const linkContainer = document.createElement("div");
-    linkContainer.className = "hmi-link";
+    linkContainer.className = "project-intro";
 
     // Create content area with link
     const content = document.createElement("div");
-    content.className = "link-content";
+    content.className = "project-intro-content";
 
     const link = document.createElement("a");
-    link.className = "site-link";
-    link.href = "https://china-hmi.design";
+    link.className = "project-intro-link";
+    // link.href = "https://china-hmi.design";
     link.target = "_blank";
-    link.textContent = "china-hmi.design";
+    link.textContent = "3D REVIVAL";
     content.appendChild(link);
 
     // Create FAB button
     const fab = document.createElement("div");
-    fab.className = "hmi-fab";
+    fab.className = "project-intro-fab";
 
     // Create project info
     const info = document.createElement("div");
     info.className = "project-info";
     info.innerHTML = `
       <div class="project-info-content">
-        <h4>Chinese Car HMI Archive</h4>
-        <p>Chinese automotive brands are creating innovative and sophisticated HMI designs, but information about these interfaces remains difficult to access outside of Chinese internet platforms. The rapid pace of updates makes it challenging to stay current, even for designers within China. This project aims to bridge this gap by documenting and sharing these design innovations with the global design community.</p>
+        <p>3D Revival is a personal take on brining back skeuomorphic design that was heavily used in the early days of iOS and macOS, keeping the core idea of mimicing real-world materials and objects, but with a more minimal and flat taste.</p>
       </div>
     `;
 
@@ -94,6 +93,6 @@ class HMILink {
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  const hmiDemo = document.getElementById("hmi-link-demo");
-  new HMILink(hmiDemo);
+  const projectIntroDemo = document.getElementById("project-intro-demo");
+  new ProjectIntro(projectIntroDemo);
 });
