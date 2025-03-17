@@ -343,6 +343,6 @@ document.addEventListener("DOMContentLoaded", () => {
   new Slider3D(slider3dDemo3, {
     folderName: "slider3d_3",
     totalFrames: 30,
-    sensitivity: 10,
+    sensitivity: 5,
   });
 });
