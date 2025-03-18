@@ -89,6 +89,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Add touch event handlers
+  vinylContainer.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    isScratching = true;
+    lastX = e.touches[0].clientX;
+    vinylContainer.classList.add("scratching");
+    if (isPlaying) {
+      rotation = parseFloat(
+        vinylImg.style.getPropertyValue("--rotation") || "0"
+      );
+    }
+  });
+
+  document.addEventListener("touchmove", (e) => {
+    if (!isScratching) return;
+    e.preventDefault();
+
+    const deltaX = e.touches[0].clientX - lastX;
+    lastX = e.touches[0].clientX;
+
+    rotation += deltaX;
+    vinylImg.style.setProperty("--rotation", `${rotation}deg`);
+
+    if (isPlaying) {
+      const scratchSpeed = Math.abs(deltaX) / 10;
+      const direction = deltaX < 0 ? -1 : 1;
+      audio.playbackRate = Math.max(0.1, Math.min(4, scratchSpeed)) * direction;
+    }
+  });
+
+  document.addEventListener("touchend", (e) => {
+    if (!isScratching) return;
+    e.preventDefault();
+    isScratching = false;
+    vinylContainer.classList.remove("scratching");
+    if (isPlaying) {
+      audio.playbackRate = normalPlaybackRate;
+    }
+  });
+
   // Add elements to demo
   demo.appendChild(vinylContainer);
   demo.appendChild(playButton);

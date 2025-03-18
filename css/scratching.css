@@ -15,6 +15,9 @@
     height: 400px;
     transform: translateY(50%);  /* Move half below the container */
     cursor: grab;  /* Add cursor style */
+    touch-action: none;  /* Add this line */
+    -webkit-user-select: none;  /* Add this line */
+    user-select: none;  /* Add this line */
 }
 
 .vinyl-container.scratching {
